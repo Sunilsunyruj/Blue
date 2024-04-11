@@ -6,7 +6,7 @@ import { pricingCards } from '@/lib/constants'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default async function Home() {
- //hola
+ //hola Amigos
 
   return (
     <>
@@ -41,7 +41,7 @@ export default async function Home() {
 
         <div className="flex  justify-center gap-4 flex-wrap mt-6">
           {pricingCards.map((card) =>(
-            //WIP: Wire up free product from stripe
+            
             <Card key={card.title} className={clsx('w-[300px] flex flex-col justify-between', {
               'border-2 border-primary': card.title === 'Unlimited Saas',
             })}>
