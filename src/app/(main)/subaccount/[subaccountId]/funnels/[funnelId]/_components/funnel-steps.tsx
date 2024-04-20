@@ -64,7 +64,7 @@ const FunnelSteps = ({ funnel, funnelId, pages, subaccountId }: Props) => {
       .toSpliced(source.index, 1)
       .toSpliced(destination.index, 0, pagesState[source.index])
       .map((page, idx) => {
-        return { ...page, order: idx }
+        return { ...page, order: idx,}
       })
 
     setPagesState(newPageOrder)

@@ -1,8 +1,7 @@
 datasource db {
-  provider  = "postgresql"
-  url  	    = env("DATABASE_URL")
-  // uncomment next line if you use Prisma <5.10
-  // directUrl = env("DATABASE_URL_UNPOOLED")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 generator client {
@@ -312,7 +311,7 @@ model ClassName {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   funnelId   String
-  customData String?  
+  customData String?  @db.LongText
   Funnel     Funnel   @relation(fields: [funnelId], references: [id], onDelete: Cascade)
 
   @@index([funnelId])
@@ -324,8 +323,8 @@ model FunnelPage {
   pathName     String   @default("")
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-  visits       Int      
-  content      String?  
+  visits       Int      @default(0)
+  content      String?  @db.LongText
   order        Int
   previewImage String?  @db.Text
   funnelId     String
@@ -400,6 +399,7 @@ enum Plan {
   price_1P0pX6HB3lvw4HqDedeImzOT
   price_1P0pYEHB3lvw4HqDIkSd491q
 }
+
 
 model Subscription {
   id        String   @id @default(uuid())
