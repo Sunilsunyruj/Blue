@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate"
@@ -38,7 +38,7 @@
     "@tanstack/react-table": "^8.13.2",
     "@tremor/react": "^3.14.1",
     "@types/uuid": "^9.0.8",
-    "@uploadthing/react": "^6.4.4",
+    "@uploadthing/react": "^5.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^0.2.1",
