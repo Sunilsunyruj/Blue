@@ -1,10 +1,8 @@
-
 datasource db {
-  provider  = "postgresql"
+ provider  = "postgresql"
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
-        
 
 generator client {
   provider = "prisma-client-js"
@@ -129,7 +127,10 @@ model SubAccount {
   Contact          Contact[]
   Trigger          Trigger[]
   Automation       Automation[]
+  Lead             Lead[]
+  Inbox            Inbox[]
   Pipeline         Pipeline[]
+  Integration      Integration[]
   Tags             Tag[]
   Notification     Notification[]
 
@@ -232,6 +233,43 @@ model Automation {
   @@index([subAccountId])
 }
 
+model Integration {
+  id             String      @id @default(uuid())
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  name           String
+  description    String?
+  active         Boolean     @default(false)   
+  subAccountId   String
+  SubAccount     SubAccount  @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+ 
+  @@index([subAccountId])
+}
+
+
+model Lead {
+  id          String      @id @default(uuid())
+  name        String
+  email       String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  subAccountId String
+  SubAccount  SubAccount  @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+
+  @@index([subAccountId])
+}
+
+model Inbox {
+  id          String      @id @default(uuid())
+  message     String
+  sender      String
+  receivedAt  DateTime    @default(now())
+  subAccountId String
+  SubAccount  SubAccount  @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
+
+  @@index([subAccountId])
+}
+
 model AutomationInstance {
   id           String     @id @default(uuid())
   createdAt    DateTime   @default(now())
@@ -326,7 +364,7 @@ model FunnelPage {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   visits       Int      @default(0)
-  content      String?  
+  content      String? 
   order        Int
   previewImage String?  @db.Text
   funnelId     String
@@ -398,10 +436,9 @@ model Notification {
 }
 
 enum Plan {
-  price_1P0pX6HB3lvw4HqDedeImzOT
-  price_1P0pYEHB3lvw4HqDIkSd491q
+  price_1OYxkqFj9oKEERu1NbKUxXxN
+  price_1OYxkqFj9oKEERu1KfJGWxgN
 }
-
 
 model Subscription {
   id        String   @id @default(uuid())

@@ -197,10 +197,10 @@ const AgencyDetails = ({ data }: Props) => {
     <AlertDialog>
       <Card className="w-full">
         <CardHeader>
-          <CardTitle>Agency Information</CardTitle>
+          <CardTitle>Company Information</CardTitle>
           <CardDescription>
-            Lets create an agency for you business. You can edit agency settings
-            later from the agency settings tab.
+          Lets create an admin for you business. You can edit admin settings
+            later from the admin settings tab.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -291,7 +291,7 @@ const AgencyDetails = ({ data }: Props) => {
                   return (
                     <FormItem className="flex flex-row items-center justify-between rounded-lg border gap-4 p-4">
                       <div>
-                        <FormLabel>Whitelabel Agency</FormLabel>
+                        <FormLabel>Whitelabel Admin</FormLabel>
                         <FormDescription>
                           Turning on whilelabel mode will show your agency logo
                           to all sub accounts by default. You can overwrite this
@@ -436,7 +436,7 @@ const AgencyDetails = ({ data }: Props) => {
                 <div>Danger Zone</div>
               </div>
               <div className="text-muted-foreground">
-                Deleting your agency cannpt be undone. This will also delete all
+              Deleting your admin cannpt be undone. This will also delete all
                 sub accounts and all data related to your sub accounts. Sub
                 accounts will no longer have access to funnels, contacts etc.
               </div>
@@ -444,7 +444,7 @@ const AgencyDetails = ({ data }: Props) => {
                 disabled={isLoading || deletingAgency}
                 className="text-red-600 p-2 text-center mt-2 rounded-md hove:bg-red-600 hover:text-white whitespace-nowrap"
               >
-                {deletingAgency ? 'Deleting...' : 'Delete Agency'}
+                {deletingAgency ? 'Deleting...' : 'Delete Admin'}
               </AlertDialogTrigger>
             </div>
           )}
