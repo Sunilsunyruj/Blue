@@ -27,6 +27,11 @@ import Tune from '@/components/icons/tune'
 import Video from '@/components/icons/video_recorder'
 import Wallet from '@/components/icons/wallet'
 import Warning from '@/components/icons/warning'
+import Leads from '@/components/icons/leads'
+import Inbox from '@/components/icons/inbox'
+import Integration from '@/components/icons/integration'
+import InboxIcon from '@/components/icons/inboxIcon'
+
 export const pricingCards = [
   {
     title: 'Starter',
@@ -208,6 +213,26 @@ export const icons = [
     value: 'clipboardIcon',
     label: 'Clipboard Icon',
     path: ClipboardIcon,
+  },
+  {
+    value: 'leads',
+    label: 'Leads',
+    path: Leads,
+  },
+  {
+    value: 'inbox',
+    label: 'Inbox',
+    path: Inbox,
+  },
+  {
+    value: 'integration',
+    label: 'Integration',
+    path: Integration,
+  },
+  {
+    value: 'inboxicon',
+    label: 'InboxIcon',
+    path: InboxIcon, 
   },
 ]
 

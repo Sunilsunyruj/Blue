@@ -46,6 +46,10 @@ enum Icon {
   category
   contact
   clipboardIcon
+  inbox
+  leads
+  integration
+  inboxicon
 }
 
 model User {

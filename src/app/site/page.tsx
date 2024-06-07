@@ -4,6 +4,7 @@ import { Car, Check } from 'lucide-react'
 import Link from 'next/link'
 import { pricingCards } from '@/lib/constants'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import Footer from '@/components/global/Footer'
 
 export default async function Home() {
  //hola Amigos
@@ -14,7 +15,7 @@ export default async function Home() {
        
       <div 
       className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]           " />      
-      <p className="text-center">Run your agency, in one place</p>
+      <p className="text-center">Your Ultimate CRM Solution</p>
         <div className="bg-gradient-to-r from-primary to-secondary-foreground text-transparent bg-clip-text relative">
           <h1 className="text-9xl font-bold text-center md:text-[300px]">
             Blem
@@ -91,6 +92,8 @@ export default async function Home() {
           ))}
         </div>
       </section>
+      <Footer/>
+
       </>
   )
       }

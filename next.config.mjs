@@ -7,6 +7,7 @@ const nextConfig = {
           'img.clerk.com',
           'subdomain',
           'files.stripe.com',
+          'api.producthunt.com',
         ],
       },
       reactStrictMode: false,
