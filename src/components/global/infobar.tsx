@@ -47,16 +47,18 @@ const InfoBar = ({ notifications, subAccountId, className, role }: Props) => {
     <>
       <div
         className={twMerge(
-          'fixed z-[20] md:left-[300px] left-0 right-0 top-0 p-4 bg-background/80 backdrop-blur-md flex  gap-4 items-center border-b-[1px] ',
+          'fixed z-[20] md:left-[200px] left-0 right-0 top-0 p-1 bg-background/80 backdrop-blur-md flex gap-4 items-center border-b-[1px]',
           className
         )}
       >
         <div className="flex items-center gap-2 ml-auto">
-          <UserButton afterSignOutUrl="/" />
+          <div className="transform scale-51">
+            <UserButton afterSignOutUrl="/" />
+          </div>
           <Sheet>
             <SheetTrigger>
-              <div className="rounded-full w-9 h-9 bg-primary flex items-center justify-center text-white">
-                <Bell size={17} />
+              <div className="rounded-full w-7 h-7 bg-primary flex items-center justify-center text-white">
+                <Bell size={10} />
               </div>
             </SheetTrigger>
             <SheetContent className="mt-4 mr-4 pr-4 overflow-scroll">
@@ -77,7 +79,7 @@ const InfoBar = ({ notifications, subAccountId, className, role }: Props) => {
                   className="flex flex-col gap-y-2 mb-2 overflow-x-scroll text-ellipsis"
                 >
                   <div className="flex gap-2">
-                    <Avatar>
+                    <Avatar className="w-4 h-4">
                       <AvatarImage
                         src={notification.User.avatarUrl}
                         alt="Profile Picture"
@@ -115,7 +117,9 @@ const InfoBar = ({ notifications, subAccountId, className, role }: Props) => {
               )}
             </SheetContent>
           </Sheet>
-          <ModeToggle />
+          <div className="transform scale-51">
+            <ModeToggle />
+          </div>
         </div>
       </div>
     </>

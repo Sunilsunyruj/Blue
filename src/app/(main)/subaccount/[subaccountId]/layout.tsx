@@ -60,7 +60,7 @@ const SubaccountLayout = async ({ children, params }: Props) => {
         type="subaccount"
       />
 
-      <div className="md:pl-[300px]">
+      <div className="md:pl-[200px]">
         <InfoBar
           notifications={notifications}
           role={user.privateMetadata.role as Role}

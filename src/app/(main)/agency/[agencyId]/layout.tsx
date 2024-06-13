@@ -45,7 +45,7 @@ const layout = async ({ children, params }: Props) => {
         id={params.agencyId}
         type="agency"
       />
-      <div className="md:pl-[300px]">
+      <div className="md:pl-[200px]">
         <InfoBar
           notifications={allNoti}
           role={allNoti.User?.role}

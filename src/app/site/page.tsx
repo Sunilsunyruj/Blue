@@ -13,9 +13,12 @@ export default async function Home() {
     <>
       <section className="h-full w-full pt-36 relative flex items-center justify-center flex-col ">
        
-      <div 
-      className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]           " />      
-      <p className="text-center">Your Ultimate CRM Solution</p>
+       {/* Light Mode Background */}
+   <div className="absolute inset-0 -z-10 size-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] dark:hidden"></div>
+   <div className="absolute inset-0 bg-[radial-gradient(circle_700px_at_70%_200px,#C9EBFF,transparent)] dark:hidden" />
+        {/* Dark Mode Background */}
+        <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>      
+      <p className="text-center text-black dark:text-white ">Your Ultimate CRM Solution</p>
         <div className="bg-gradient-to-r from-primary to-secondary-foreground text-transparent bg-clip-text relative">
           <h1 className="text-9xl font-bold text-center md:text-[300px]">
             Blem
