@@ -7,18 +7,23 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import Footer from '@/components/global/Footer'
 
 export default async function Home() {
- //hola Amigos
-
   return (
     <>
       <section className="h-full w-full pt-36 relative flex items-center justify-center flex-col ">
        
-       {/* Light Mode Background */}
+   {/* Light Mode Background */}
    <div className="absolute inset-0 -z-10 size-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] dark:hidden"></div>
-   <div className="absolute inset-0 bg-[radial-gradient(circle_700px_at_70%_200px,#C9EBFF,transparent)] dark:hidden" />
+   {/* <div className="absolute inset-0 bg-[radial-gradient(circle_600px_at_40%_800px,#0056b3,transparent)] dark:hidden" /> */}
         {/* Dark Mode Background */}
-        <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>      
-      <p className="text-center text-black dark:text-white ">Your Ultimate CRM Solution</p>
+       
+<div className="relative size-full bg-slate-950">
+  <div className="absolute bottom-0 left-[-20%] right-0 top-[-10%] size-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]" />
+  <div className="absolute bottom-0 right-[-20%] top-[-10%] size-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]" />
+</div>
+
+        {/* Different text content for light and dark modes */}
+        <p className="font-bold text-2xl text-[#0056b3] dark:hidden text-center">Blem is easy-to-use, zero-clutter CRM built for the way small business actually sell:</p>
+        <p className="font-bold text-2xl hidden dark:block text-[#ffffff] text-center">Fast, all-in-one Sales Communication</p>
         <div className="bg-gradient-to-r from-primary to-secondary-foreground text-transparent bg-clip-text relative">
           <h1 className="text-9xl font-bold text-center md:text-[300px]">
             Blem
@@ -28,8 +33,8 @@ export default async function Home() {
           <Image
             src={'/assets/preview.png'}
             alt="banner image"
-            height={1200}
-            width={1200}
+            height={1000}
+            width={1000}
             className="rounded-tl-2xl rounded-tr-2xl border-2 border-muted"
           />
           <div className="bottom-0 top-[50%] bg-gradient-to-t dark:from-background left-0 right-0 absolute z-10"></div>
@@ -99,5 +104,5 @@ export default async function Home() {
 
       </>
   )
-      }
+}
 
