@@ -21,7 +21,7 @@ const Terms = () => {
         <li>use the materials for any commercial purpose or for any public display;</li>
         <li>attempt to reverse engineer any software contained on Blem CRM&apos;s Website;</li>
         <li>remove any copyright or other proprietary notations from the materials; or</li>
-        <li>transferring the materials to another person or "mirror" the materials on any other server.</li>
+        <li>transferring the materials to another person or mirror the materials on any other server.</li>
       </ul>
       <p className="mb-4">
         This will let Blem CRM to terminate upon violations of any of these restrictions. Upon termination, your viewing right will also be terminated and you should destroy any downloaded materials in your possession whether it is printed or electronic format. These Terms of Service have been created with the help of the <a href="https://www.termsofservicegenerator.net" className="text-blue-500 underline">Terms Of Service Generator</a>.
@@ -29,7 +29,7 @@ const Terms = () => {
 
       <h2 className="text-2xl font-semibold mb-2">3. Disclaimer</h2>
       <p className="mb-4">
-        All the materials on Blem CRM&apos;s Website are provided "as is". Blem CRM makes no warranties, may it be expressed or implied, therefore negates all other warranties. Furthermore, Blem CRM does not make any representations concerning the accuracy or reliability of the use of the materials on its Website or otherwise relating to such materials or any sites linked to this Website.
+        All the materials on Blem CRM&apos;s Website are provided as is. Blem CRM makes no warranties, may it be expressed or implied, therefore negates all other warranties. Furthermore, Blem CRM does not make any representations concerning the accuracy or reliability of the use of the materials on its Website or otherwise relating to such materials or any sites linked to this Website.
       </p>
 
       <h2 className="text-2xl font-semibold mb-2">4. Limitations</h2>

@@ -14,7 +14,7 @@ const PrivacyPolicy: React.FC = () => {
       <p className="mt-4">
         We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection
         and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help
-        of the{' '}
+        of the
         <a
           href="https://www.termsfeed.com/privacy-policy-generator/"
           target="_blank"
@@ -100,7 +100,7 @@ const PrivacyPolicy: React.FC = () => {
         </li>
         <li className="mt-2">
           <p>
-            <strong>Website</strong> refers to Blem CRM, accessible from{' '}
+            <strong>Website</strong> refers to Blem CRM, accessible from
             <a href="https://blemcrm.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
               https://blemcrm.com
             </a>
@@ -142,7 +142,7 @@ const PrivacyPolicy: React.FC = () => {
         Usage Data is collected automatically when using the Service.
       </p>
       <p className="mt-2">
-        Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type,
+        Usage Data may include information such as Your Devices Internet Protocol address (e.g. IP address), browser type,
         browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those
         pages, unique device identifiers and other diagnostic data.
       </p>
@@ -170,12 +170,12 @@ const PrivacyPolicy: React.FC = () => {
       </ul>
       <p className="mt-2">
         If You decide to register through or otherwise grant us access to a Third-Party Social Media Service, We may
-        collect Personal data that is already associated with Your Third-Party Social Media Service's account, such as Your
+        collect Personal data that is already associated with Your Third-Party Social Media Service&apos;s account, such as Your
         name, Your email address, Your activities or Your contact list associated with that account.
       </p>
       <p className="mt-2">
         You may also have the option of sharing additional information with the Company through Your Third-Party Social
-        Media Service's account. If You choose to provide such information and Personal Data, during registration or
+        Media Service&apos;s account. If You choose to provide such information and Personal Data, during registration or
         otherwise, You are giving the Company permission to use, share, and store it in a manner consistent with this
         Privacy Policy.
       </p>
@@ -203,7 +203,7 @@ const PrivacyPolicy: React.FC = () => {
       <p className="mt-2">
         Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent Cookies remain on Your personal
         computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close Your web
-        browser. You can learn more about cookies on{' '}
+        browser. You can learn more about cookies on
         <a
           href="https://www.termsfeed.com/blog/cookies/#What_Are_Cookies"
           target="_blank"
@@ -211,7 +211,7 @@ const PrivacyPolicy: React.FC = () => {
           className="text-blue-600 hover:underline"
         >
           TermsFeed website
-        </a>{' '}
+        </a>
         article.
       </p>
       <p className="mt-2">
@@ -252,7 +252,7 @@ const PrivacyPolicy: React.FC = () => {
         </li>
         <li className="mt-2">
           <strong>To contact You:</strong> To contact You by email, telephone calls, SMS, or other equivalent forms of
-          electronic communication, such as a mobile application's push notifications regarding updates or informative
+          electronic communication, such as a mobile applications push notifications regarding updates or informative
           communications related to the functionalities, products or contracted services, including the security updates,
           when necessary or reasonable for their implementation.
         </li>
@@ -323,7 +323,7 @@ const PrivacyPolicy: React.FC = () => {
     </p>
     <h3 className="text-lg font-semibold mt-4">Transfer of Your Personal Data</h3>
     <p className="mt-2">
-      Your information, including Personal Data, is processed at the Company's operating offices and in any other places
+      Your information, including Personal Data, is processed at the Companys operating offices and in any other places
       where the parties involved in the processing are located. It means that this information may be transferred to — and
       maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where
       the data protection laws may differ than those from Your jurisdiction.
@@ -365,7 +365,7 @@ const PrivacyPolicy: React.FC = () => {
       Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to
       protect Your Personal Data, We cannot guarantee its absolute security.
     </p>
-    <h3 className="text-lg font-semibold mt-4">Children's Privacy</h3>
+    <h3 className="text-lg font-semibold mt-4">Childrens Privacy</h3>
     <p className="mt-2">
       Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable
       information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has
@@ -375,12 +375,12 @@ const PrivacyPolicy: React.FC = () => {
     </p>
     <p className="mt-2">
       If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from
-      a parent, We may require Your parent's consent before We collect and use that information.
+      a parent, We may require Your parents consent before We collect and use that information.
     </p>
     <h3 className="text-lg font-semibold mt-4">Links to Other Websites</h3>
     <p className="mt-2">
       Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You
-      will be directed to that third party's site. We strongly advise You to review the Privacy Policy of every site You
+      will be directed to that third partys site. We strongly advise You to review the Privacy Policy of every site You
       visit.
     </p>
     <p className="mt-2">
