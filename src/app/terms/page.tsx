@@ -1,7 +1,7 @@
 import React from 'react';
-
 import Footer from '@/components/global/Footer'
-const Terms = () => {
+
+const Terms: React.FC =  () => {
   return (
     <>
     <div className="max-w-4xl mx-auto p-10 bg-white shadow-md rounded-md">
