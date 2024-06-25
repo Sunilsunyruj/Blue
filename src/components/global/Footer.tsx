@@ -1,9 +1,18 @@
+'use client'
 import React from 'react';
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Footer = () => {
+
+  const router = useRouter();
+
+  const navigateTo = (path: string) => {
+    router.push(path);
+  };
+
   return (
     <footer className="bg-black text-white py-12 border-t border-gray-400">
       <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-10 sm:px-6 lg:px-8">
@@ -88,14 +97,23 @@ const Footer = () => {
           <p className="text-center text-sm text-white-500 sm:text-left">
             Copyright &copy; 2024 Blem. All rights reserved.
           </p>
-          <p className="text-center text-sm text-white-500 sm:text-left">
-            Terms of Services
-          </p>
-          <p className="text-center text-sm text-white-500 sm:text-left">
-            <Link href="/privacypolicy" className="text-center text-sm text-white-500 sm:text-left underline">
-              Privacy Policy
-            </Link>
-          </p>
+          
+          <div className="text-center text-sm text-white-500 sm:text-left">
+      <div className="flex justify-center space-x-4">
+        <button
+          onClick={() => navigateTo('/terms')}
+          className="text-center text-sm text-white-500 underline cursor-pointer bg-transparent border-none p-0"
+        >
+          Terms and Conditions
+        </button>
+        <button
+          onClick={() => navigateTo('/privacypolicy')}
+          className="text-center text-sm text-white-500 underline cursor-pointer bg-transparent border-none p-0"
+        >
+          Privacy Policy
+        </button>
+      </div>
+    </div>
           <ul className="mt-4 flex justify-center gap-6 sm:mt-0 sm:justify-start">
             <li>
               <a href="#" rel="noreferrer" target="_blank" className="text-white-700 transition hover:text-white-700/75">
