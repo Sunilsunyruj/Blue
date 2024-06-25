@@ -342,7 +342,6 @@ export const upsertSubAccount = async (subAccount: SubAccount) => {
             name: 'Dashboard',
             icon: 'category',
             link: `/subaccount/${subAccount.id}`,
-            className: 'bold-name',
           },
           {
             name: 'Launchpad',
@@ -814,12 +813,47 @@ export const upsertContact = async (
 ) => {
   const response = await db.contact.upsert({
     where: { id: contact.id || v4() },
-    update: contact,
     create: contact,
+    update: contact,
   });
   return response;
 };
 
+
+export const updateContact = async (contact:Prisma.ContactUncheckedUpdateInput) => {
+
+  const response = await db.contact.upsert({
+    where: { id: contact.id || v4() },
+    update: contact,
+  });
+
+  return response;
+}
+export const findContact = async (contactId: string) => {
+  console.log("contactID from query", contactId)
+  const response = await db.contact.findUnique({ where: { id: contactId } })
+  return response
+}
+
+export const deleteContacts = async (contactIds: string[]) => {
+  const response = await db.contact.deleteMany(
+    {
+      where:
+      {
+        id: {
+          in: contactIds
+        }
+      }
+    }
+  )
+  return response
+}
+
+export const deleteContact = async (contactId:string) =>{
+  const response = await db.contact.delete({where:{id:contactId}})
+  return response
+
+}
 export const getFunnels = async (subacountId: string) => {
   const funnels = await db.funnel.findMany({
     where: { subAccountId: subacountId },
@@ -869,14 +903,14 @@ export const upsertFunnelPage = async (
       content: funnelPage.content
         ? funnelPage.content
         : JSON.stringify([
-            {
-              content: [],
-              id: "__body",
-              name: "Body",
-              styles: { backgroundColor: "white" },
-              type: "__body",
-            },
-          ]),
+          {
+            content: [],
+            id: "__body",
+            name: "Body",
+            styles: { backgroundColor: "white" },
+            type: "__body",
+          },
+        ]),
       funnelId,
     },
   });
@@ -922,3 +956,50 @@ export const getPipelines = async (subaccountId: string) => {
   });
   return response;
 };
+export const upsertLead = async (
+  lead: Prisma.LeadUncheckedCreateInput
+) => {
+
+  console.log("Lead from the form", lead)
+  const response = await db.lead.upsert({
+    where: { id: lead.id || v4() },
+    create: lead,
+    update: lead,
+  });
+  return response;
+};
+export const deleteLeads = async (leadIds: string[]) => {
+  const response = await db.lead.deleteMany(
+    {
+      where:
+      {
+        id: {
+          in: leadIds
+        }
+      }
+    }
+  )
+  return response
+}
+
+export const deleteLead = async (leadId: string) => {
+  const response = await db.lead.delete({ where: { id: leadId } });
+  return response;
+}
+export const findLeadInfo = async (leadId: string) => {
+  const response = await db.lead.findUnique({
+    where: { id: leadId },
+  });
+  return response;
+}
+
+export const updateLead = async (
+  lead: Prisma.LeadUncheckedCreateInput
+
+) => {
+  const response = await db.lead.update({
+    where: { id: lead.id },
+    data: { ...lead },
+  });
+  return response;
+}
