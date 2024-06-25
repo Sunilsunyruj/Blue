@@ -47,7 +47,7 @@ const ContactUserForm: React.FC<ContactUserFormProps> = ({ subaccountId,action,c
     defaultValues: {
       name: contactInfo ? contactInfo.name : '',
       title: contactInfo ? contactInfo.title : '',
-      deal: contactInfo ? contactInfo.deal : '',
+      deal: contactInfo ? Number(contactInfo.deal) : undefined,
       type: contactInfo ? contactInfo.type :'',
       priority: contactInfo ? contactInfo.priority :'',
       phone: contactInfo? contactInfo.phone :'',

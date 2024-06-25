@@ -167,9 +167,10 @@ export const columns: ColumnDef<Lead>[] = [
         accessorKey: "createdAt",
         header: "Created At",
         cell: ({ row }) => {
-            const date = new Date(row.getValue('createdAt'))
-            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+            const date = new Date(row.getValue('createdAt'));
+            const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: '2-digit' };
             const formattedDate = date.toLocaleDateString('en-GB', options);
+            
 
             return <span>{formattedDate}</span>
         },
@@ -180,10 +181,10 @@ export const columns: ColumnDef<Lead>[] = [
         accessorKey: "updatedAt",
         header: "Updated At",
         cell: ({ row }) => {
-            const date = new Date(row.getValue('updatedAt'))
-            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+            const date = new Date(row.getValue('updatedAt'));
+            const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: '2-digit' };
             const formattedDate = date.toLocaleDateString('en-GB', options);
-
+            
             return <span>{formattedDate}</span>
         },
         filterFn: dateFilter

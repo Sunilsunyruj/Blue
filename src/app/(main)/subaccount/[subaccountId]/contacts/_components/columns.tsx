@@ -149,9 +149,9 @@ export const columns: ColumnDef<Contact>[] = [
         accessorKey: "createdAt",
         header: "Created Date",
         cell: ({ row }) => {
-            const date = new Date(row.getValue('createdAt'))
-            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-            const formattedDate = date.toLocaleDateString('en-GB', options);
+            const date = new Date(row.getValue('createdAt'));
+const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: '2-digit' };
+const formattedDate = date.toLocaleDateString('en-GB', options);
 
             return <span>{formattedDate}</span>
         },
@@ -161,9 +161,10 @@ export const columns: ColumnDef<Contact>[] = [
         accessorKey: "updatedAt",
         header: "Updated Date",
         cell: ({ row }) => {
-            const date = new Date(row.getValue('updatedAt'))
-            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+            const date = new Date(row.getValue('updatedAt'));
+            const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: '2-digit' };
             const formattedDate = date.toLocaleDateString('en-GB', options);
+            
 
             return <span>{formattedDate}</span>
         },

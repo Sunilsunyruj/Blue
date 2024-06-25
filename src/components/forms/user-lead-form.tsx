@@ -33,7 +33,7 @@ const UserLeadForm: React.FC<UserLeadFormProps> = ({ subaccountId,action,leadInf
     resolver: zodResolver(UserLeadFormSchema),
     defaultValues: {
       name: leadInfo? leadInfo.name:'',
-      leadScore:leadInfo? String(leadInfo.leadScore):'0',
+      leadScore: leadInfo ? Number(leadInfo.leadScore) : 0,
       status:  leadInfo? leadInfo.status:'',
       company:  leadInfo? leadInfo.company:'',
       title:  leadInfo? leadInfo.title:'',

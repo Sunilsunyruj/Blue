@@ -27,7 +27,7 @@ const UpdateContactButton = ({ subaccountId,contactId}: Props) => {
         subheading="Contacts are like customers."
         
       >
-        <ContactUserForm subaccountId={subaccountId} action='update' contactInfo={contactInfo}/>
+        <ContactUserForm subaccountId={subaccountId} action='update' contactInfo={contactInfo!}/>
       </CustomModal>
     )
    }catch(error){
