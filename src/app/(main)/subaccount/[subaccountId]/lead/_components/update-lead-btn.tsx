@@ -24,7 +24,7 @@ const UpdateLeadButton:React.FC<Props> = ({ leadId }: Props) => {
         subheading="Contacts are like customers."
         
       >
-        <UserLeadForm  action='update' leadInfo={leadData!}/>
+        <UserLeadForm  action='update' leadInfo={leadData!} subaccountId={leadData!.subAccountId}/>
       </CustomModal>
     )
   }

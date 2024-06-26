@@ -1,7 +1,7 @@
 "use client"
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
-import { deleteContact, deleteLead, saveActivityLogsNotification } from '@/lib/queries';
+import { deleteContact, saveActivityLogsNotification } from '@/lib/queries';
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
@@ -38,7 +38,7 @@ const DeleteContact = ({ subaccountId, contactId }: Props) => {
     
     const router = useRouter();
   return (
-   <div onClick={handleDeleteContact} className='w-full bg-red-700 rounded-lg text-center p-1'>Delete</div>
+   <div onClick={handleDeleteContact}>Delete</div>
   )
 }
 

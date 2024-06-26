@@ -22,8 +22,11 @@ interface DataTableProps<TData, TValue> {
     childElement?: React.ReactNode
     dataType: string
 }
+export interface WithId {
+    id: string;
+}
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData extends WithId, TValue>({
     columns,
     data,
     subaccountId,
@@ -34,6 +37,7 @@ export function DataTable<TData, TValue>({
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
     const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
     const [rowSelection, setRowSelection] = useState({})
+    
 
     const table = useReactTable({
         data,
@@ -63,7 +67,7 @@ export function DataTable<TData, TValue>({
             <div className="w-full flex justify-end gap-2">
                 {table.getSelectedRowModel().flatRows.length > 1 ?
                     <>
-                        <MultiDeleteButton subaccountId={subaccountId} type={dataType} Ids={table.getSelectedRowModel().flatRows.map(row => row.original.id)} />
+                        <MultiDeleteButton subaccountId={subaccountId} type={dataType} Ids={table.getSelectedRowModel().flatRows.map((row) => row.original.id)} table={table} />
                         <DataToExcel type={dataType} data={table.getSelectedRowModel().flatRows.map(row => row.original)} />
                     </>
 

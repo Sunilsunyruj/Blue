@@ -47,7 +47,7 @@ const ContactUserForm: React.FC<ContactUserFormProps> = ({ subaccountId,action,c
     defaultValues: {
       name: contactInfo ? contactInfo.name : '',
       title: contactInfo ? contactInfo.title : '',
-      deal: contactInfo ? Number(contactInfo.deal) : undefined,
+      deal: contactInfo ? contactInfo.deal: undefined,
       type: contactInfo ? contactInfo.type :'',
       priority: contactInfo ? contactInfo.priority :'',
       phone: contactInfo? contactInfo.phone :'',
@@ -68,7 +68,31 @@ const ContactUserForm: React.FC<ContactUserFormProps> = ({ subaccountId,action,c
     values: z.infer<typeof ContactUserFormSchema>
   ) => {
     try {
+     if(action === 'create'){
       const response = await upsertContact({
+        name: values.name,
+        title: values.title,
+        type: values.type,
+        deal: values.deal,
+        priority: values.priority,
+        phone: values.phone,
+        email: values.email,
+        company: values.company,
+        subAccountId: subaccountId,
+      })
+      await saveActivityLogsNotification({
+        agencyId: undefined,
+        description: `Created a contact | ${response?.name}`,
+        subaccountId: subaccountId,
+      })
+      toast({
+        title: 'Success',
+        description: 'Saved contact details',
+      })
+     }
+     if(action === 'update'){
+      const response = await upsertContact({
+        id: contactInfo?.id,
         name: values.name,
         title: values.title,
         type: values.type,
@@ -86,15 +110,16 @@ const ContactUserForm: React.FC<ContactUserFormProps> = ({ subaccountId,action,c
       })
       toast({
         title: 'Success',
-        description: 'Saved funnel details',
+        description: 'Saved contact details',
       })
+     }
       setClose()
       router.refresh()
     } catch (error) {
       toast({
         variant: 'destructive',
         title: 'Oppse!',
-        description: 'Could not save funnel details',
+        description: 'Could not save contact details',
       })
     }
   }
@@ -188,6 +213,7 @@ const ContactUserForm: React.FC<ContactUserFormProps> = ({ subaccountId,action,c
                     <Input
                       placeholder="Deal"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                     />
                   </FormControl>
                   <FormMessage />

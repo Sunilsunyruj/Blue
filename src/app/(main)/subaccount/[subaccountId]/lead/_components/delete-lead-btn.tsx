@@ -19,7 +19,6 @@ const DeleteLeadButton = ({ subaccountId, leadIds }: Props) => {
           try {
             if (Array.isArray(leadIds)) {
               const deleteResponse = await deleteLeads(leadIds)
-              console.log(deleteResponse);
               await saveActivityLogsNotification({
                 agencyId: undefined,
                 description: `${deleteResponse.count} Leads deleted`,
@@ -32,7 +31,6 @@ const DeleteLeadButton = ({ subaccountId, leadIds }: Props) => {
               router.refresh()
             }else{
               const deleteResponse = await deleteLead(leadIds)
-              console.log(deleteResponse);
               await saveActivityLogsNotification({
                 agencyId: undefined,
                 description: `Leads deleted`,

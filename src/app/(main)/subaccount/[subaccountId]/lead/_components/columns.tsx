@@ -36,7 +36,6 @@ const dateFilter = (data:any,columnId:string, filterValue:string[]) => {
     const response = filterValue.some((item: string) => {
       switch (item) {
         case 'today':
-          console.log("Entering Today", date >= startOfToday());
           return date >= startOfToday();
         case 'yesterday':
           return date >= startOfYesterday() && date < startOfToday();

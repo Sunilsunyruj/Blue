@@ -1,11 +1,11 @@
 'use client'
 import ContactUserForm from '@/components/forms/contact-user-form'
 import CustomModal from '@/components/global/custom-modal'
-import { Button } from '@/components/ui/button'
 import { findContact } from '@/lib/queries'
 import { useModal } from '@/providers/modal-provider'
-import { Contact } from '@prisma/client'
 import React from 'react'
+import { toast } from '@/components/ui/use-toast';
+
 
 type Props = {
   subaccountId: string
@@ -31,7 +31,10 @@ const UpdateContactButton = ({ subaccountId,contactId}: Props) => {
       </CustomModal>
     )
    }catch(error){
-    console.log("Error in fetching contact",error)
+    toast({
+      title: 'Error',
+      description: 'unable to fetch contact information',
+    })
    }
   }
 

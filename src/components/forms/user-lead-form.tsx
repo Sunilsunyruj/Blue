@@ -1,5 +1,5 @@
 "use client"
-import { saveActivityLogsNotification, updateLead, upsertLead } from '@/lib/queries'
+import { saveActivityLogsNotification, upsertLead } from '@/lib/queries'
 import { UserLeadFormSchema } from '@/lib/types'
 import { useModal } from '@/providers/modal-provider'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -10,7 +10,7 @@ import { z } from 'zod'
 import { toast } from '../ui/use-toast'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
 import { statusOptions } from '@/lib/constants'
-import {  Select, SelectItem,SelectTrigger, SelectValue, SelectContent } from '../ui/select'
+import { Select, SelectItem, SelectTrigger, SelectValue, SelectContent } from '../ui/select'
 import { Button } from '@/components/ui/button'
 import { Input } from '../ui/input'
 import Loading from '../global/loading'
@@ -20,26 +20,29 @@ import { Lead } from '@prisma/client'
 
 
 interface UserLeadFormProps {
-  subaccountId?: string
-  action:"create" | "update"
-  leadInfo?:Lead
+  subaccountId: string
+  action: "create" | "update"
+  leadInfo?: Lead
 
 }
-const UserLeadForm: React.FC<UserLeadFormProps> = ({ subaccountId,action,leadInfo }) => {
+const UserLeadForm: React.FC<UserLeadFormProps> = ({ subaccountId, action, leadInfo }) => {
   const { setClose, data } = useModal()
+  console.log("Action is ", action)
+  console.log("leadinfo is ", leadInfo)
+  console.log("Subacount id from form", subaccountId);
   const router = useRouter();
   const form = useForm<z.infer<typeof UserLeadFormSchema>>({
     mode: 'onChange',
     resolver: zodResolver(UserLeadFormSchema),
     defaultValues: {
-      name: leadInfo? leadInfo.name:'',
-      leadScore: leadInfo ? Number(leadInfo.leadScore) : 0,
-      status:  leadInfo? leadInfo.status:'',
-      company:  leadInfo? leadInfo.company:'',
-      title:  leadInfo? leadInfo.title:'',
-      email:  leadInfo? leadInfo.email:'',
-      phone:  leadInfo? leadInfo.phone:'',
-      comments:  leadInfo? leadInfo.comments:'',
+      name: leadInfo ? leadInfo.name : '',
+      leadScore: leadInfo ? leadInfo.leadScore : undefined,
+      status: leadInfo ? leadInfo.status : '',
+      company: leadInfo ? leadInfo.company : '',
+      title: leadInfo ? leadInfo.title : '',
+      email: leadInfo ? leadInfo.email : '',
+      phone: leadInfo ? leadInfo.phone : '',
+      comments: leadInfo ? leadInfo.comments : '',
     },
   })
   useEffect(() => {
@@ -52,28 +55,60 @@ const UserLeadForm: React.FC<UserLeadFormProps> = ({ subaccountId,action,leadInf
 
   const handleSubmit = async (values: z.infer<typeof UserLeadFormSchema>) => {
     try {
-      const data = {
-        name: values.name,
-        leadScore: Number(values.leadScore),
-        status: values.status,
-        company: values.company,
-        title: values.title,
-        email: values.email,
-        phone: values.phone,
-        comments: values.comments,
-        subAccountId:subaccountId
+      if (action === "create") {
+        const data = {
+          name: values.name,
+          leadScore: values.leadScore,
+          status: values.status,
+          company: values.company,
+          title: values.title,
+          email: values.email,
+          phone: values.phone,
+          comments: values.comments,
+          subAccountId: subaccountId
+        }
+        console.log("the data is", data);
+
+        const response = await upsertLead(data)
+
+        await saveActivityLogsNotification({
+          agencyId: undefined,
+          description: `Updated a Lead | ${response?.name}`,
+          subaccountId: subaccountId,
+        })
+        toast({
+          title: 'Contact Updated',
+          description: 'Lead has been updated successfully',
+        })
       }
-      const response = await upsertLead(data)
-      
-      await saveActivityLogsNotification({
-        agencyId: undefined,
-        description: `Updated a Lead | ${response?.name}`,
-        subaccountId: subaccountId, 
-      })
-      toast({
-        title: 'Contact Updated',
-        description: 'Lead has been updated successfully',
-      })
+      if (action === "update") {
+        const data = {
+          id:leadInfo?.id,
+          name: values.name,
+          leadScore: values.leadScore,
+          status: values.status,
+          company: values.company,
+          title: values.title,
+          email: values.email,
+          phone: values.phone,
+          comments: values.comments,
+          updatedAt: new Date(),
+          subAccountId: subaccountId
+        }
+        console.log("the data is", data);
+
+        const response = await upsertLead(data)
+
+        await saveActivityLogsNotification({
+          agencyId: undefined,
+          description: `Updated a Lead | ${response?.name}`,
+          subaccountId: subaccountId,
+        })
+        toast({
+          title: 'Contact Updated',
+          description: 'Lead has been updated successfully',
+        })
+      }
       setClose();
       router.refresh()
     } catch (error) {
@@ -125,14 +160,17 @@ const UserLeadForm: React.FC<UserLeadFormProps> = ({ subaccountId,action,leadInf
                   <FormLabel>Lead Score</FormLabel>
                   <FormControl>
                     <Input
+                      type='number'
                       placeholder="Lead Score"
                       {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                     />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
+
             <FormField
               disabled={isLoading}
               control={form.control}
@@ -199,7 +237,7 @@ const UserLeadForm: React.FC<UserLeadFormProps> = ({ subaccountId,action,leadInf
                 </FormItem>
               )}
             />
-          
+
             <FormField
               disabled={isLoading}
               control={form.control}
@@ -218,7 +256,7 @@ const UserLeadForm: React.FC<UserLeadFormProps> = ({ subaccountId,action,leadInf
                 </FormItem>
               )}
             />
-              <FormField
+            <FormField
               disabled={isLoading}
               control={form.control}
               name="phone"

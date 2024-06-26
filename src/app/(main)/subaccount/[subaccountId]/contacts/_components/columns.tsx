@@ -34,7 +34,6 @@ const dateFilter = (data: any, columnId: string, filterValue: string[]) => {
     return filterValue.some((item: string) => {
         switch (item) {
             case 'today':
-                console.log("Entering Today", date >= startOfToday());
                 return date >= startOfToday();
             case 'yesterday':
                 return date >= startOfYesterday() && date < startOfToday();
@@ -174,7 +173,6 @@ const formattedDate = date.toLocaleDateString('en-GB', options);
         id: "actions",
         cell: ({ row }) => {
             const contactId = row.original // you get the row id here
-            console.log(contactId)
             return (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -185,8 +183,7 @@ const formattedDate = date.toLocaleDateString('en-GB', options);
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem       
-                            className=" text-white"             
+                        <DropdownMenuItem  className="bg-red-500 text-white"                  
                         >
                             <DeleteContact subaccountId={contactId.subAccountId} contactId={contactId.id}/>
                         </DropdownMenuItem>

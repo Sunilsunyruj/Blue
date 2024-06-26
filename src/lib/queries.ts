@@ -814,23 +814,17 @@ export const upsertContact = async (
   const response = await db.contact.upsert({
     where: { id: contact.id || v4() },
     create: contact,
-    update: contact,
+    update: {
+      ...contact,
+      updatedAt:new Date()
+    },
   });
   return response;
 };
 
 
-export const updateContact = async (contact:Prisma.ContactUncheckedUpdateInput) => {
 
-  const response = await db.contact.upsert({
-    where: { id: contact.id || v4() },
-    update: contact,
-  });
-
-  return response;
-}
 export const findContact = async (contactId: string) => {
-  console.log("contactID from query", contactId)
   const response = await db.contact.findUnique({ where: { id: contactId } })
   return response
 }
@@ -960,7 +954,6 @@ export const upsertLead = async (
   lead: Prisma.LeadUncheckedCreateInput
 ) => {
 
-  console.log("Lead from the form", lead)
   const response = await db.lead.upsert({
     where: { id: lead.id || v4() },
     create: lead,
@@ -993,13 +986,3 @@ export const findLeadInfo = async (leadId: string) => {
   return response;
 }
 
-export const updateLead = async (
-  lead: Prisma.LeadUncheckedCreateInput
-
-) => {
-  const response = await db.lead.update({
-    where: { id: lead.id },
-    data: { ...lead },
-  });
-  return response;
-}

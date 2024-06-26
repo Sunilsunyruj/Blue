@@ -119,11 +119,7 @@ export const ContactUserFormSchema = z.object({
   name: z.string().min(1, 'Required'),
   title: z.string().min(1, 'Required'),
   type: z.string().min(1, 'Required'),
-  deal: z.string().transform((val) => Number(val))
-  .refine((val) => !isNaN(val), {
-    message: "Invalid deal value"
-  })
-  .refine((val) => val >= 0, { message: "Deal value must be greater than or equal to 0" }),
+  deal: z.number().min(0),
   priority: z.string().min(1, 'Required'),
   phone: z.string().regex(/^\d{10}$/, "Invalid phone number"),
   email: z.string().email(),
@@ -160,11 +156,7 @@ export type UpsertFunnelPage = Prisma.FunnelPageCreateWithoutFunnelInput
 
 export const UserLeadFormSchema = z.object({ 
   name: z.string().min(1, 'Required'),
-  leadScore:z.string().transform((val)=>Number(val)).refine((val)=>!isNaN(val),{ 
-    message:"Invalid lead score"
-  }).refine((val)=>val>=0 && val <= 100,{ 
-    message:"Lead score must be between 0 and 100"
-  }),
+  leadScore:z.number().min(0).max(100),
   status:z.string().min(1, 'Required'),
   company:z.string().min(1, 'Required'),
   title:z.string().min(1, 'Required'),
