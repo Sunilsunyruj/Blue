@@ -31,9 +31,6 @@ export function DataTableFacetedFilter<TData, TValue>({
   const [searchValue, setSearchValue] = useState<string>("")
   const columnFilterValue = column?.getFilterValue()
 
-  console.log('column', column)
-  console.log('columnFilterValue', columnFilterValue)
-  console.log('columnFilterValue as [number, number]', columnFilterValue as [number, number])
 
   const handleSelect = (value: string) => {
     const newSelectedValues = new Set(selectedValues)

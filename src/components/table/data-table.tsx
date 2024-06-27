@@ -14,6 +14,9 @@ import { DataTablePagination } from "@/components/table/data-table-pagination";
 import DataToExcel from "../global/exportToExcel";
 import MultiDeleteButton from "@/components/global/multi-delete-btn"
 import { DataTableToolbar } from "./table-toolbar";
+import ImportFromExcel from "../forms/subscription-form/import-from-excel";
+import CustomModal from "../global/custom-modal";
+import { useModal } from "@/providers/modal-provider";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
@@ -33,11 +36,14 @@ export function DataTable<TData extends WithId, TValue>({
     childElement,
     dataType,
 }: DataTableProps<TData, TValue>) {
+    const { setOpen } = useModal()
+
     const [sorting, setSorting] = useState<SortingState>([])
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
     const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
     const [rowSelection, setRowSelection] = useState({})
-    
+
+
 
     const table = useReactTable({
         data,
@@ -61,7 +67,16 @@ export function DataTable<TData extends WithId, TValue>({
             rowSelection,
         },
     })
-    
+
+    const handleImport = () => {
+        setOpen(
+            <CustomModal title='Upload File' subheading='column name must same as in table'>
+                <div>
+                <ImportFromExcel subAccountId={subaccountId} dataType={dataType} />
+                </div>
+            </CustomModal>
+        )
+    }
     return (
         <div>
             <div className="w-full flex justify-end gap-2">
@@ -75,13 +90,14 @@ export function DataTable<TData extends WithId, TValue>({
                     <>
                         {childElement}
                         <DataToExcel type={dataType} data={data} />
+                        <Button onClick={handleImport} className="text-white bg-purple-600">Import from Excel</Button>
                     </>}
 
 
             </div>
 
             <div className="flex items-center justify-evenly py-4">
-                <DataTableToolbar table={table} />
+                <DataTableToolbar table={table} dataType={dataType} />
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant="outline" className="ml-auto">

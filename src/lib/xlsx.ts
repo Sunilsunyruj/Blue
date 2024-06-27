@@ -11,6 +11,7 @@ export function downloadLeadToExcel(data:any){
                 { label: "Title", value: "title" },
                 { label: "Email", value: "email" },
                 { label: "Phone", value: "phone" },
+                { label: "Company", value: "company"},
                 { label: "Created At", value: (row: any) => new Date(row.createdAt).toLocaleDateString() },
                 { label: "Updated At", value: (row: any) => new Date(row.updatedAt).toLocaleDateString() },
                 { label: "Comments", value: "comments" },

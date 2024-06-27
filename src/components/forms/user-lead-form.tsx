@@ -27,9 +27,7 @@ interface UserLeadFormProps {
 }
 const UserLeadForm: React.FC<UserLeadFormProps> = ({ subaccountId, action, leadInfo }) => {
   const { setClose, data } = useModal()
-  console.log("Action is ", action)
-  console.log("leadinfo is ", leadInfo)
-  console.log("Subacount id from form", subaccountId);
+
   const router = useRouter();
   const form = useForm<z.infer<typeof UserLeadFormSchema>>({
     mode: 'onChange',
