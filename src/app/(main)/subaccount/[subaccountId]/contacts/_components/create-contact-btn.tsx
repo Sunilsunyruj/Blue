@@ -17,8 +17,9 @@ const CraeteContactButton = ({ subaccountId }: Props) => {
       <CustomModal
         title="Create Or Update Contact information"
         subheading="Contacts are like customers."
+        
       >
-        <ContactUserForm subaccountId={subaccountId} />
+        <ContactUserForm subaccountId={subaccountId} action='create'/>
       </CustomModal>
     )
   }

@@ -59,7 +59,7 @@ export const pricingCards = [
     highlight: 'Key features',
     features: ['Rebilling', '24/7 Support team'],
     priceId: 'price_1P0pYEHB3lvw4HqDIkSd491q',
-  
+
   },
 ]
 
@@ -232,7 +232,7 @@ export const icons = [
   {
     value: 'inboxicon',
     label: 'InboxIcon',
-    path: InboxIcon, 
+    path: InboxIcon,
   },
 ]
 
@@ -257,6 +257,7 @@ export const defaultStyles: React.CSSProperties = {
   textAlign: 'left',
   opacity: '100%',
 }
+
 
 
 //landing-page reference
@@ -376,4 +377,85 @@ export const USERS = [
 
 
 export const MAX_FOLDERS_FREE_PLAN = 3;
+
+
+export const priorityOptions = [
+  { value: 'low', label: 'Low' },
+  { value: 'medium', label: 'Medium' },
+  { value: 'high', label: 'High' },
+]
+
+export const contactTypeOptions = [
+  { value: 'lead', label: 'Lead' },
+  { value: 'qualifiedLead', label: 'Qualified Lead' },
+  { value: 'customer', label: 'Customer' },
+  { value: 'partner', label: 'Partner' },
+  { value: 'vendor', label: 'Vendor' },
+]
+
+export const statusOptions = [
+  { value: 'contacted', label: 'Contacted' },
+  { value: 'attempted', label: 'Attempted' },
+  { value: 'badFit', label: 'Bad Fit' },
+  { value: 'qualified', label: 'Qualified' },
+  { value: 'newLead', label: 'New Lead' },
+]
+
+
+export const leadStatusColors: Record<string, string> = {
+  contacted: 'bg-[#F59E0B]',
+  attempted: 'bg-[#6366F1]',
+  badfit: 'bg-[#EF4444]',
+  qualified: 'bg-[#22C55E]',
+  newLead: 'bg-[#0EA5E9]',
+};
+export const statusFilter = [
+
+  {
+    value:"contacted",
+    label:"Contacted"
+  },
+  {
+    value:"attempted",
+    label:"Attempted"
+  },
+  {
+    value:"badFit",
+    label:"Bad Fit"
+  },
+  {
+    value:"qualified",
+    label:"Qualified"
+  },
+  {
+    value:"newLead",
+    label:"New Lead"
+  }
+]
+export const dateFilter = [
+  {
+    value:"today",
+    label:"Today"
+  },
+  {
+    value:"yesterday",
+    label:"Yesterday"
+  },
+  {
+    value:"thisWeek",
+    label:"This Week"
+  },
+  {
+    value:"thisMonth",
+    label:"This Month"
+  },
+  {
+    value:"thisYear",
+    label:"This Year"
+  },
+  {
+    value:"lastQuarter",
+    label:"Last Quarter"
+  }
+]
 
