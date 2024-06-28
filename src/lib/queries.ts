@@ -816,13 +816,20 @@ export const upsertContact = async (
     create: contact,
     update: {
       ...contact,
-      updatedAt:new Date()
+      updatedAt: new Date()
     },
   });
   return response;
 };
 
-
+export const uploadMultipleContacts = async (
+  contacts: Prisma.ContactUncheckedCreateInput[]
+) => {
+  const response = await db.contact.createMany({
+    data: contacts
+  })
+  return response;
+}
 
 export const findContact = async (contactId: string) => {
   const response = await db.contact.findUnique({ where: { id: contactId } })
@@ -843,8 +850,8 @@ export const deleteContacts = async (contactIds: string[]) => {
   return response
 }
 
-export const deleteContact = async (contactId:string) =>{
-  const response = await db.contact.delete({where:{id:contactId}})
+export const deleteContact = async (contactId: string) => {
+  const response = await db.contact.delete({ where: { id: contactId } })
   return response
 
 }
@@ -985,4 +992,12 @@ export const findLeadInfo = async (leadId: string) => {
   });
   return response;
 }
-
+export const uploadMultipleLeads = async (
+  leads: Prisma.LeadUncheckedCreateInput[]
+) => {
+  const response = await db.lead.createMany({
+    data: leads,
+    skipDuplicates: true,
+  })
+  return response;
+}

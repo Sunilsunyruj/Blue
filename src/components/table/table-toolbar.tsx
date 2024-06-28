@@ -1,6 +1,6 @@
 "use client"
 import { XCircle } from "lucide-react"
-import { Table } from "@tanstack/react-table"
+import { ColumnDef, Table } from "@tanstack/react-table"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { DataTableFacetedFilter } from "@/components/table/data-table-filter"
@@ -8,10 +8,12 @@ import { dateFilter, priorityOptions, statusOptions } from "@/lib/constants"
 
 interface DataTableToolbarProps<TData> {
     table: Table<TData>
+    dataType: string
 }
 
-export function DataTableToolbar<TData>({
+export function DataTableToolbar<TData, TValue>({
     table,
+    dataType
 }: DataTableToolbarProps<TData>) {
     const isFiltered = table.getState().columnFilters.length > 0
 
@@ -37,9 +39,8 @@ export function DataTableToolbar<TData>({
                         className="max-w-xl"
                     />
                 )}
-
-
-                {table.getColumn("status") && (
+                {dataType === "contact" && 
+                table.getColumn("status") && (
                     <DataTableFacetedFilter
                         column={table.getColumn('status')}
                         title="Status"
@@ -47,6 +48,16 @@ export function DataTableToolbar<TData>({
                         type={"checkbox"}
                     />
                 )}
+                {dataType === "lead" &&
+                    table.getColumn("status") && (
+                        <DataTableFacetedFilter
+                            column={table.getColumn('status')}
+                            title="Status"
+                            options={statusOptions}
+                            type={"checkbox"}
+                        />
+                    )
+                }
 
                 {table.getColumn("createdAt") && (
                     <DataTableFacetedFilter
@@ -64,21 +75,16 @@ export function DataTableToolbar<TData>({
                         type={"checkbox"}
                     />
                 )}
-                {table.getColumn("leadScore") && (
-                    <DataTableFacetedFilter
-                        column={table.getColumn('leadScore')}
-                        title="Lead Score"
-                        type={"range"}
-                    />
-                )}
-                {table.getColumn("priority") && (
-                    <DataTableFacetedFilter
-                        column={table.getColumn('priority')}
-                        title="Priority"
-                        options={priorityOptions}
-                        type={"checkbox"}
-                    />
-                )}
+                {
+                    dataType === "lead" && table.getColumn("leadScore") && (
+                        <DataTableFacetedFilter
+                            column={table.getColumn('leadScore')}
+                            title="Lead Score"
+                            type={"range"}
+                        />
+                    )
+                }
+               
                 {isFiltered && (
                     <Button
                         variant="ghost"
