@@ -277,100 +277,66 @@ export const CLIENTS = [
 
 export const USERS = [
   {
-    name: 'Alice',
+    name: 'Dibakar',
     message:
-      'Cypress has been a game-changer for our team. With its reliable end-to-end testing, we catch bugs early, leading to faster development cycles and improved collaboration.',
+      'Switching to Blem CRM was one of the best decisions we made. It offers robust features at an affordable price. The call integration works flawlessly, and the real-time analytics have provided us with valuable insights. Fantastic product!',
   },
   {
-    name: 'Bob',
+    name: 'Sankar M',
     message:
-      "I used to spend hours debugging frontend issues, but Cypress simplified everything. Now, I'm more productive, and my colleagues can trust our code thanks to Cypress.",
+      "As a small business, we needed a CRM that was powerful yet easy to use. Blem CRM fits the bill perfectly. Its user-friendly, and the support team is always ready to help. We have seen a significant improvement in customer satisfaction and sales efficiency.",
   },
   {
-    name: 'Charlie',
+    name: 'Gurunath',
     message:
-      "Cypress has transformed the way we work. Our QA and development teams are on the same page, and our productivity has skyrocketed. It's a must-have tool.",
+      "Blem CRM has been a game-changer for our sales team. The automation features save us so much time, and the platform is incredibly reliable. Our lead management is more organized, and we have closed more deals since implementing Blem.",
   },
   {
-    name: 'David',
+    name: 'Sujit',
     message:
-      'I was skeptical at first, but Cypress exceeded my expectations. Our project timelines have improved, and collaboration between teams is seamless.',
+      'Since adopting Blem CRM, our workflow has become much more streamlined. The platform is straightforward to navigate, and the automation features have reduced our manual tasks significantly. Its been a vital tool for our sales team.',
   },
   {
-    name: 'Ella',
+    name: 'Mahesh',
     message:
-      "Cypress made writing and running tests a breeze. Our team's productivity has never been higher, and we're delivering more reliable software.",
+      "Blem CRM has been more than just a tool. It's been a partner in our growth. The platform is incredibly user-friendly, and the continuous updates ensure we are always ahead of the curve.",
   },
   {
-    name: 'Frank',
+    name: 'Sakhshi',
     message:
-      "Thanks to Cypress, we've eliminated testing bottlenecks. Our developers and testers collaborate effortlessly, resulting in quicker releases.",
+      "We needed a CRM that could scale with us as we grew, and Blem CRM delivered. The customization options allowed us to tailor it to our needs, and the call features work without a hitch. Its helped us stay on top of our customer relationships and sales goals.",
   },
   {
-    name: 'Grace',
+    name: 'Prabhat',
     message:
-      'Cypress has improved our development process significantly. We now have more time for innovation, and our products are of higher quality.',
+      'Blem helps me to get 15% conversion and please add more integrations.',
   },
   {
-    name: 'Hank',
+    name: 'Sachin',
     message:
-      "Cypress's user-friendly interface made it easy for our non-technical team members to contribute to testing. Our workflow is much more efficient now.",
+      "Switching to blem CRM was the best decision for our business.",
   },
   {
-    name: 'Ivy',
+    name: 'Aditya',
     message:
-      "Our team's collaboration improved immensely with Cypress. We catch issues early, leading to less friction and quicker feature deployments.",
+      "Blem CRMstand out for its ease is use and robust features. It has made managing customer relationship a breeze. Excellent support.",
   },
   {
-    name: 'Jack',
+    name: 'Divya',
     message:
-      "Cypress's robust testing capabilities have elevated our development standards. We work more harmoniously, and our releases are more reliable.",
+      "We love how easy it is to use Blem. It's intuitive, comprehensive and has made our sales process much more streamlined.",
   },
   {
-    name: 'Katherine',
+    name: 'Hannah',
     message:
-      "Cypress is a lifesaver for our cross-functional teams. We're more productive, and there's a shared sense of responsibility for product quality.",
+      "ntegrating blem CRM with our existing business applications was a breeze. It's seamless and has enhanced our overall workflow.",
   },
   {
-    name: 'Liam',
+    name: 'Rahul',
     message:
-      "Cypress has helped us maintain high standards of quality. Our team's collaboration has improved, resulting in faster development cycles.",
+      "Excellent Tool with robust features and great customer support.",
   },
-  {
-    name: 'Mia',
-    message:
-      "Cypress is a powerful tool that improved our productivity and collaboration. It's now an integral part of our development process.",
-  },
-  {
-    name: 'Nathan',
-    message:
-      "Cypress's user-friendly interface and detailed reporting have made testing a breeze. Our team's productivity is at an all-time high.",
-  },
-  {
-    name: 'Olivia',
-    message:
-      "We saw immediate benefits in terms of productivity and collaboration after adopting Cypress. It's an essential tool for our development workflow.",
-  },
-  {
-    name: 'Paul',
-    message:
-      "Cypress has streamlined our testing process and brought our teams closer. We're more efficient and deliver better results.",
-  },
-  {
-    name: 'Quinn',
-    message:
-      'Cypress has been a game-changer for us. Our productivity and collaboration have improved significantly, leading to better software.',
-  },
-  {
-    name: 'Rachel',
-    message:
-      'Thanks to Cypress, our testing process is now a seamless part of our development cycle. Our teams collaborate effortlessly.',
-  },
-  {
-    name: 'Sam',
-    message:
-      'Cypress is a fantastic tool that has revolutionized our workflow. Our productivity and collaboration have reached new heights.',
-  },
+  
 ];
 
 

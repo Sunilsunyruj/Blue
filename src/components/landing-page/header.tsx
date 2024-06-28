@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Logo from '../../../public/blem-logo.svg';
+import Preview from '../../../public/assets/preview.png'
 
 import {
   NavigationMenu,
@@ -18,6 +19,7 @@ import {
 import { cn } from '@/lib/utils';
 import { Button } from '../ui/button';
 import { ModeToggle } from '@/components/global/mode-toggle'
+
 
 const routes = [
   { title: 'Features', href: '#features' },
@@ -108,7 +110,7 @@ const Header = () => {
               Resources
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul
+            <ul
                 className="grid
                 gap-3
                 p-6
@@ -232,6 +234,12 @@ const Header = () => {
           href={'/agency'}
           className="bg-primary text-white p-2 px-4 rounded-md hover:bg-primary/80"
         >
+          Sign up
+        </Link>
+        <Link
+          href={'/agency'}
+          className="bg-primary text-white p-2 px-4 rounded-md hover:bg-primary/80"
+        >
           Login
         </Link>
         <ModeToggle />
@@ -252,19 +260,20 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            'group block select-none space-y-1 font-medium leading-none'
+            'group block select-none space-y-1 font-medium leading-none',
+             // Combine with any additional classes passed as props
           )}
           {...props}
         >
-          <div className="text-white text-sm font-medium leading-none">
+          <div className="text-gray-800 dark:text-white text-sm font-medium leading-none">
             {title}
           </div>
           <p
-            className="group-hover:text-white/70
+            className="group-hover:text-gray-600 dark:group-hover:text-white/70
             line-clamp-2
             text-sm
             leading-snug
-            text-white/40
+            text-gray-600 dark:text-white/40
           "
           >
             {children}
